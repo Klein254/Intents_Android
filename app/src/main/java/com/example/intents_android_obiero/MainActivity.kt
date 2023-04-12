@@ -49,7 +49,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnMpesa.setOnClickListener {
-            val mpesaIntent = Intent
+            val simtoolkitIntent = applicationContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+            simtoolkitIntent?.let { startActivity(it) }
+        }
+
+        btnWebsite.setOnClickListener {
+            //Code to navigate from activity to another
+            val open_website = Intent(this, Website_Activity::class.java)
+            startActivity(open_website)
         }
 
     }
